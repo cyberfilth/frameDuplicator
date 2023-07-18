@@ -12,6 +12,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+    quitButton: TButton;
     selectButton: TButton;
     convertButton: TButton;
     SelectDirectoryDialog1: TSelectDirectoryDialog;
@@ -19,6 +20,7 @@ type
     procedure convertButtonClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure quitButtonClick(Sender: TObject);
     procedure selectButtonClick(Sender: TObject);
   private
 
@@ -65,10 +67,9 @@ end;
 
 procedure TForm1.convertButtonClick(Sender: TObject);
 var
-  xPOS, i, minusOne: integer;
+  i, minusOne: integer;
   zeroCount: string;
 begin
-  xPOS := 0;
   i := 0;
   minusOne := 1;
   zeroCount := '0';
@@ -116,6 +117,12 @@ begin
   suffix := '.png';
   fileList := TStringList.Create;
   statusLabel.Caption := ' Select a folder of images';
+end;
+
+procedure TForm1.quitButtonClick(Sender: TObject);
+begin
+  fileList.Free;
+  Application.Terminate;
 end;
 
 end.
