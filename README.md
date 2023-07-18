@@ -8,3 +8,6 @@ When I animate, I tend to animate at 12fps. I can point this tool at a folder fu
 It's a clunky tool, with no error handling, which assumes all images in a folder are part of the same sequence.
 
 [Download the Windows tool here](https://github.com/cyberfilth/frameDuplicator/releases/download/v1.0/FrameDuplicator.zip)
+
+
+![Folder view](folderView.png)
