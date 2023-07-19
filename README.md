@@ -1,4 +1,4 @@
-# frameDuplicator
+# two's - frameDuplicator
 Tool to double the number of frames of an animation.
 
 ![screenshot](screenshot.png)
