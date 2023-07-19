@@ -12,6 +12,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+    Memo1: TMemo;
     quitButton: TButton;
     selectButton: TButton;
     convertButton: TButton;
@@ -60,7 +61,7 @@ begin
       numberOfImages := fileList.Count;
       statusLabel.Caption := ' ' + IntToStr(numberOfImages) + ' images in folder';
     finally
-      //ShowMessage(fileList.Text);
+      Memo1.Lines.Add(selectedFolder + ' selected.');
     end;
   end;
 end;
@@ -100,7 +101,9 @@ begin
     else if ((i + 1) < 10000) then zeroCount := '00';
     CopyFile(selectedFolder + PathDelim + fileList.Strings[i], selectedFolder + PathDelim + 'twos' + PathDelim + basename + '_' + zeroCount + IntToStr(minusOne) + '.' + suffix);
     CopyFile(selectedFolder + PathDelim + fileList.Strings[i], selectedFolder + PathDelim + 'twos' + PathDelim + basename + '_' + zeroCount + IntToStr((i + 1) * 2) + '.' + suffix);
+    Memo1.Lines.Add(IntToStr(i + 1) + ' of ' + IntToStr(filelist.Count) + ' files copied.');
   end;
+  Memo1.Lines.Add('Files written to ' + selectedFolder + 'twos' + PathDelim);
   statusLabel.Caption := 'Complete';
 end;
 
@@ -115,6 +118,7 @@ begin
   numberOfImages := 0;
   baseName := 'image';
   suffix := '.png';
+  Memo1.Text := 'twos - frame duplicator by Chris Hawkins';
   fileList := TStringList.Create;
   statusLabel.Caption := ' Select a folder of images';
 end;
